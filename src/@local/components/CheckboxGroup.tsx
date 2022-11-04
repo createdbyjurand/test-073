@@ -33,11 +33,9 @@ export const CheckboxGroup = (props: ICheckboxGroupProps) => {
 
   const handleCheckboxChange = (id: string, value: RadixUIReactCheckbox.CheckedState) => {
     if (id === 'all') {
-      if (allCheckboxes === true) {
-        setCheckboxGroupState(Object.fromEntries(Object.keys(checkboxGroupState).map(id => [id, false])));
-      } else {
-        setCheckboxGroupState(Object.fromEntries(Object.keys(checkboxGroupState).map(id => [id, true])));
-      }
+      allCheckboxes === true
+        ? setCheckboxGroupState(Object.fromEntries(Object.keys(checkboxGroupState).map(id => [id, false])))
+        : setCheckboxGroupState(Object.fromEntries(Object.keys(checkboxGroupState).map(id => [id, true])));
     } else {
       setCheckboxGroupState({ ...checkboxGroupState, [id]: value });
     }
